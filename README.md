@@ -1,6 +1,6 @@
-# Teckzite-2K15
-The purpose of Teckzite-2K15 Website is to let students register to Teckzite-2K15 Events.
-
+# Live Quiz Portal
+Examination system to conduct exams for college events.Exams will be created by 3 modes and gives instant results with lot of
+features.
 ## Getting Started
 
 ### Prerequisites
