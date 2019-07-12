@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Two way drawers</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+    <script src="../../../js/jquery.min.js"></script>
+    <script src="../../../js/kendo.mobile.min.js"></script>
+    <script src="../../content/shared/js/console.js"></script>
+    <link href="../../../styles/kendo.common.min.css" rel="stylesheet" />
+    <link href="../../../styles/kendo.mobile.all.min.css" rel="stylesheet" />
+</head>
+<body>
+    <a href="../index.html">Back</a>
+    <div data-role="view" id="two-drawer-home" data-title="Friends">
+    <header data-role="header">
+        <div data-role="navbar">
+            <a data-role="button" data-rel="drawer" href="#left-drawer" data-icon="comments" data-align="left"></a>
+            <span data-role="view-title"></span>
+            <a data-align="right" data-role="button" class="nav-button" href="#index">Index</a>
+            <a data-role="button" data-rel="drawer" href="#right-drawer" data-icon="share" data-align="right"></a>
+        </div>
+    </header>
+
+    <ul data-role="listview" data-type="group">
+        <li>
+            A
+            <ul>
+                <li><h2>Ann Devon</h2><img src="../../content/mobile/overview/ann.jpg" /></li>
+                <li><h2>Annette Roulet</h2><img src="../../content/mobile/overview/annette.jpg" /></li>
+                <li><h2>Antonio Moreno</h2><img src="../../content/mobile/overview/antonio.jpg" /></li>
+            </ul>
+        </li>
+        <li>
+            C
+            <ul>
+                <li><h2>Carine Schmitt</h2><img src="../../content/mobile/overview/carine.jpg" /></li>
+                <li><h2>Catherine Dewey</h2><img src="../../content/mobile/overview/catherine.jpg" /></li>
+            </ul>
+        </li>
+        <li>
+           D
+            <ul>
+                <li><h2>Daniel Tonini</h2><img src="../../content/mobile/overview/daniel.jpg" /></li>
+                <li><h2>Diego Roel</h2><img src="../../content/mobile/overview/diego.jpg" /></li>
+            </ul>
+        </li>
+        <li>
+            E
+            <ul>
+                <li><h2>Eduardo Saavedra</h2><img src="../../content/mobile/overview/eduardo.jpg" /></li>
+                <li><h2>Elizabeth Brown</h2><img src="../../content/mobile/overview/elizabeth.jpg" /></li>
+            </ul>
+        </li>
+        <li>
+            F
+            <ul>
+                <li><h2>Felipe Izquierdo</h2><img src="../../content/mobile/overview/felipe.jpg" /></li>
+                <li><h2>Fran Wilson</h2><img src="../../content/mobile/overview/fran.jpg" /></li>
+                <li><h2>Francisco Chang</h2><img src="../../content/mobile/overview/francisco.jpg" /></li>
+            </ul>
+        </li>
+    </ul>
+</div>
+
+<div data-role="drawer" id="left-drawer" style="width: 270px" data-title="Communities" data-views="['two-drawer-home', '@Url.Content("~/mobile/m/drawer/two-way-drawers.html")']">
+    <header data-role="header">
+        <div data-role="navbar">
+            <span data-role="view-title"></span>
+        </div>
+    </header>
+
+    <ul data-role="listview">
+        <li data-icon="camera">Nature Photography</li>
+        <li data-icon="camera">Wildlife Photography</li>
+        <li data-icon="camera">Night Photography</li>
+        <li data-icon="camera">Fine Art Photography</li>
+        <li data-icon="camera">Portrait Photography</li>
+        <li data-icon="printer">3D Printing</li>
+        <li data-icon="comments">CSS3 Community</li>
+        <li data-icon="comments">HTML5 Community</li>
+        <li data-icon="comments">Java User Groups</li>
+        <li data-icon="comments">Graphic Design</li>
+        <li data-icon="comments">Bodybuilding</li>
+        <li data-icon="comments">JavaScript</li>
+        <li data-icon="comments">C#</li>
+        <li data-icon="graph">DataViz</li>
+    </ul>
+</div>
+
+<div data-role="drawer" id="right-drawer" style="width: 80px" data-title="Share" data-position="right" data-views="['two-drawer-home', '@Url.Content("~/mobile/m/drawer/two-way-drawers.html")']">
+    <header data-role="header">
+        <div data-role="navbar">
+            <span data-role="view-title"></span>
+        </div>
+    </header>
+    <img src="../../content/mobile/shared/share.png" width="100%"/>
+</div>
+
+<script>
+    // reset global drawer instance, for demo purposes
+    kendo.mobile.ui.Drawer.current = null;
+</script>
+
+<style>
+    .km-ios #left-drawer .km-content, .km-android #left-drawer .km-content, .km-blackberry #left-drawer .km-content,
+    .km-ios #left-drawer .km-list > li, .km-android #left-drawer .km-list > li, .km-blackberry #left-drawer .km-list > li,
+    .km-ios #left-drawer .km-listview-link > .km-icon, .km-android #left-drawer .km-listview-link > .km-icon, .km-blackberry #left-drawer .km-listview-link > .km-icon,
+    .km-ios #left-drawer .km-list li > .km-icon, .km-android #left-drawer .km-list li > .km-icon, .km-blackberry #left-drawer .km-list li > .km-icon,
+    #right-drawer .km-content
+    {
+        background-color: #4e4e4e;
+        color: #fff;
+    }
+
+    .km-ios #left-drawer .km-group-title,
+    .km-blackberry #left-drawer .km-group-title
+    {
+        background-color: #6e6e6e;
+        color: #fff;
+    }
+
+    #left-drawer .km-navbar, #right-drawer .km-navbar,
+    .km-tablet .km-ios #left-drawer .km-view-title,
+    .km-tablet .km-ios #right-drawer .km-view-title
+    {
+	background-color: #2e2e2e;
+        color: #fff;
+        text-shadow: 0 -1px rgba(0,0,0,.5);
+    }
+
+    .km-drawer-button:before, .km-drawer-button:after { content: "\E077"; }
+    .km-contacts:before, .km-contacts:after { content: "\E0E4"; }
+    .km-camera:before, .km-camera:after { content: "\E0D0"; }
+    .km-printer:before, .km-printer:after { content: "\E07E"; }
+    .km-comments:before, .km-comments:after { content: "\E093"; }
+    .km-graph:before, .km-graph:after { content: "\E04B"; }
+
+
+    #two-drawer-home h2
+    {
+        display: inline-block;
+        font-size: 1em;
+        line-height: 3em;
+        margin: 0 0 0 1em;
+    }
+
+    #two-drawer-home img
+    {
+        float: left;
+        width: 3em;
+        height: 3em;
+        margin: 0;
+        border: 2px solid rgba(0,0,0,.1);
+    }
+
+    .km-ios #two-drawer-home .km-listview
+    {
+        background-color: #eaf1f5;
+    }
+</style>
+
+
+    <script>
+        window.kendoMobileApplication = new kendo.mobile.Application(document.body);
+    </script>
+</body>
+</html>

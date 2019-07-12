@@ -1,0 +1,70 @@
+<?php
+session_start();
+?>
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+		<script type="text/javascript" src="chart/jquery.min.js"></script>
+		<style type="text/css">
+${demo.css}
+		</style>
+		<script type="text/javascript">
+$(function () {
+    $('#container').highcharts({
+        chart: {
+            type: 'pie',
+            options3d: {
+                enabled: true,
+                alpha: 45,
+                beta: 0
+            }
+        },
+        title: {
+            text: 'YOUR SCORE CHART BELOW'
+        },
+        tooltip: {
+            pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+        },
+        plotOptions: {
+            pie: {
+                allowPointSelect: true,
+                cursor: 'pointer',
+                depth: 35,
+                dataLabels: {
+                    enabled: true,
+                    format: '{point.name}'
+                }
+            }
+        },
+        series: [{
+            type: 'pie',
+            name: 'Test Overall Performace',
+            data: [
+                ['Aptitude',   45.0],
+                ['Verbal',       26.8],
+                {
+                    name: 'Chrome',
+                    y: 12.8,
+                    sliced: true,
+                    selected: true
+                },
+                ['Reasoning',    8.5],
+                ['Cprogramming',     6.2],
+                ['Java',   0.7]
+            ]
+        }]
+    });
+});
+		</script>
+	</head>
+	<body>
+
+<script src="chart/highcharts.js"></script>
+<script src="chart/highcharts-3d.js"></script>
+
+
+<div id="container" style="height: 400px"></div>
+	</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Binding to grouped data</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+
+    <link href="../../content/shared/styles/examples-offline.css" rel="stylesheet">
+    <link href="../../../styles/kendo.dataviz.min.css" rel="stylesheet">
+
+    <script src="../../../js/jquery.min.js"></script>
+    <script src="../../../js/kendo.dataviz.min.js"></script>
+    <script src="../../content/shared/js/console.js"></script>
+</head>
+<body>
+    <a class="offline-button" href="../index.html">Back</a>
+    <div id="example" class="k-content">
+    <div class="chart-wrapper">
+        <div id="chart"></div>
+    </div>
+    <script>
+        var stocksDataSource = new kendo.data.DataSource({
+            transport: {
+                read: {
+                    url: function() {
+                        return "../../content/dataviz/dashboards/stock-data-2011.json";
+                    },
+                    dataType: "json"
+                }
+            },
+
+            group: {
+                field: "symbol"
+            },
+
+            sort: {
+                field: "date",
+                dir: "asc"
+            },
+
+            schema: {
+                model: {
+                    fields: {
+                        date: {
+                            type: "date"
+                        }
+                    }
+                }
+            }
+        });
+
+        function createChart() {
+            $("#chart").kendoChart({
+                title: { text: "Stock Prices" },
+                dataSource: stocksDataSource,
+                series: [{
+                    type: "column",
+                    field: "close",
+                    name: "#= group.value # (close)"
+                }],
+                legend: {
+                    position: "bottom"
+                },
+                valueAxis: {
+                    labels: {
+                        format: "${0}",
+                        skip: 2,
+                        step: 2
+                    }
+                },
+                categoryAxis: {
+                    field: "date",
+                    labels: {
+                        format: "MMM"
+                    }
+                }
+            });
+        }
+
+        $(document).ready(createChart);
+        $(document).bind("kendo:skinChange", createChart);
+    </script>
+</div>
+
+</body>
+</html>

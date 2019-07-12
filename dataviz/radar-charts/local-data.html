@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Binding to local data</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+
+    <link href="../../content/shared/styles/examples-offline.css" rel="stylesheet">
+    <link href="../../../styles/kendo.dataviz.min.css" rel="stylesheet">
+
+    <script src="../../../js/jquery.min.js"></script>
+    <script src="../../../js/kendo.dataviz.min.js"></script>
+    <script src="../../content/shared/js/console.js"></script>
+</head>
+<body>
+    <a class="offline-button" href="../index.html">Back</a>
+    <div id="example" class="k-content">
+    <div class="chart-wrapper">
+        <div id="chart"></div>
+    </div>
+    <script>
+        var proteinData = [{
+            name: "Tryptophan",
+            abbr: "Trp",
+            score: 3
+        }, {
+            name: "Threonine",
+            abbr: "Thr",
+            score: 4
+        }, {
+            name: "Isoleucine",
+            abbr: "Iso",
+            score: 5
+        }, {
+            name: "Leucine",
+            abbr: "Leu",
+            score: 5
+        }, {
+            name: "Lysine",
+            abbr: "Lys",
+            score: 5
+        }, {
+            name: "Methionine + Cystine",
+            abbr: "M+C",
+            score: 2
+        }, {
+            name: "Phenylalanine + Tyrosine",
+            abbr: "p+T",
+            score: 3
+        }, {
+            name: "Valine",
+            abbr: "Val",
+            score: 5
+        }, {
+            name: "Histidine",
+            abbr: "Hys",
+            score: 4
+        }];
+
+        function createChart() {
+            $("#chart").kendoChart({
+                title: {
+                    text: "Protein quality, Apple raw"
+                },
+                dataSource: {
+                    data: proteinData
+                },
+                series: [{
+                    name: "Proteins",
+                    type: "radarColumn",
+                    field: "score"
+                }],
+                categoryAxis: {
+                    field: "abbr"
+                },
+                valueAxis: {
+                    visible: false
+                },
+                tooltip: {
+                    visible: true
+                },
+                legend: {
+                    visible: false
+                }
+            });
+        }
+
+        $(document).ready(createChart);
+        $(document).bind("kendo:skinChange", createChart);
+    </script>
+</div>
+
+</body>
+</html>

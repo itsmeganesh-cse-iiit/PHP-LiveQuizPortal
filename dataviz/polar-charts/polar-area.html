@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Polar area</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+
+    <link href="../../content/shared/styles/examples-offline.css" rel="stylesheet">
+    <link href="../../../styles/kendo.dataviz.min.css" rel="stylesheet">
+
+    <script src="../../../js/jquery.min.js"></script>
+    <script src="../../../js/kendo.dataviz.min.js"></script>
+    <script src="../../content/shared/js/console.js"></script>
+</head>
+<body>
+    <a class="offline-button" href="../index.html">Back</a>
+    
+        <div id="example" class="k-content">
+            <div class="chart-wrapper">
+                <div id="chart"></div>
+            </div>
+            <script>
+                function createChart() {
+                    $("#chart").kendoChart({
+                        title: {
+                            text: "Polar area"
+                        },
+                        legend: {
+                            position: "bottom"
+                        },
+                        series: [{
+                            type: "polarArea",
+                            data: [
+                                [10, 10], [30, 20], [50, 30],
+                                [70, 20], [90, 10], [90, 0],
+                                [230, 10], [235, 20], [240, 30],
+                                [245, 20], [250, 10]
+                            ]
+                        }]
+                    });
+                }
+
+                $(document).ready(createChart);
+                $(document).bind("kendo:skinChange", createChart);
+            </script>
+        </div>
+
+</body>
+</html>

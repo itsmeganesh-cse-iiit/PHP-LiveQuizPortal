@@ -1,0 +1,90 @@
+<?php
+session_start();
+$_SESSION['new_quiz_id']='N100704';
+if(isset($_SESSION['qno']))
+{
+	unset($_SESSION['qno']);
+	unset($_SESSION['noq']);
+	unset($_SESSION['mode']);
+	unset($_SESSION['coff']);
+	unset($_SESSION['timedur']);
+	unset($_SESSION['qname']);
+	
+}
+?>
+<!DOCTYPE html>
+<html>
+<head>
+<div id='main'>
+    <title><?php 
+    $id="GUEST";
+    if(isset($_SESSION['new_quiz_id']))
+		$id=$_SESSION['new_quiz_id'];
+    echo "SDCAC USER - ".$id;?></title>
+
+
+    <link href="../styles/kendo.common.min.css" rel="stylesheet">
+    <link href="../styles/kendo.default.min.css" rel="stylesheet">
+
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/kendo.web.min.js"></script>
+    <script src="content/shared/js/console.js"></script>
+    <script src='script.js'></script>
+    
+    
+    
+
+  <link rel='stylesheet' href='popbox.css' type='text/css' media='screen' charset='utf-8'>
+  <script type='text/javascript' charset='utf-8' src='popbox.js'></script>
+  <style type='text/css' media='screen'>
+  
+
+    a { color:#999; text-decoration:none; }
+    label { display: block; }
+    form { margin: 25px; text-align:left }
+    form input[type=text] { padding:5px; width:90%; border:solid 1px #CCC;}
+    form textarea { padding:5px; width:90%; border:solid 1px #CCC; height:100px;}
+
+    .box { width:350px; }
+
+     footer {
+       font-size:12px;
+     }
+     form a, footer a { color:#40738d; }
+  </style>
+  <script type='text/javascript' charset='utf-8'>
+    $(document).ready(function(){
+      $('.popbox').popbox();
+    });
+  </script>
+
+  <div class='popbox'>
+    <a class='open' href='#'>
+      <img src='plus.png' style='width:14px;position:relative;'> Login
+    </a>
+
+    <div class='collapse'>
+      <div class='box'>
+        <div class='arrow'></div>
+        <div class='arrow-border'></div>
+
+        <form action="http://gristmill.createsend.com/t/j/s/nklki/" method="post" id="subForm">
+          <p><small>Please complete the form to sign up for the <a href="http://gristmill.io" target="_blank">Gristmill.io</a> mailing list!</small></p>
+          <div class="input">
+            <input type="text" name="cm-name" id="name" placeholder="Name" />
+          </div>
+          <div class="input">
+            <input type="text" name="cm-nklki-nklki" id="nklki-nklki" placeholder="Email" />
+          </div>
+          <div class="input">
+            <textarea name="cm-f-tlhll" id="Message" placeholder="Comments"></textarea>
+          </div>
+          <input type="submit" value="Get In Touch" /> <a href="#" class="close">Cancel</a>
+        </form>
+
+      </div>
+    </div>
+  </div>
+
+ 
+</body>
