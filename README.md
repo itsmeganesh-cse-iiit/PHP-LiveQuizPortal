@@ -12,6 +12,9 @@ What things you need to install the software and how to install them
 
 - Install  [Xampp](https://www.apachefriends.org/download.html).
 - Copy Source files to web root.
+- [Demo URL](http://livequizportal.000webhostapp.com/)
+- default username : N100704
+- default password : N100704
 
 
 ## Built With
